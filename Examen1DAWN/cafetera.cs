@@ -52,9 +52,9 @@ class Cafetera
     /// <returns> devuelve un string con el agua restante o si es necesario revisar el agua</returns>
     public string ConsumoAgua(double numerodecafe) //numero de cafés a hacer
     {
-        double constante = 0.1;
-        agua = agua - numerodecafe * constante; // Constante de consumo de agua 0.1l por cada unidad de café. 
-        if (agua < 0.1)
+        double constante = 0.1; // se declara una constante de tipo double
+        agua = agua - numerodecafe * constante; // se resta 0,1 por el numero de cafe al agua usada. 
+        if (agua < 0.1)// si el agua es menor que 0,1 se ejecuta el if
         {   agua = 0;
             return "Falta agua en el depósito, por favor, revisar los niveles.";
         }
@@ -70,8 +70,8 @@ class Cafetera
     /// <returns> devuelve un string con el numero de capsulas restantes o si se necesitan mas</returns>
     public string ConsumoCapsulas(double numerodecafe) //Hacer un café 
     {
-        totaldecapsulas = totaldecapsulas - numerodecafe;
-        if (totaldecapsulas < 0)
+        totaldecapsulas = totaldecapsulas - numerodecafe; // se  actualiza el total de capsulas
+        if (totaldecapsulas < 0) // cuando el numero restante es menor a 0 se ejeuta el if
         {
             totaldecapsulas = 0;
             return "Faltan cápsulas en el depósito, por favor, compre cápsulas.";
@@ -82,35 +82,33 @@ class Cafetera
         }
     }
     /// <summary>
-    /// Metodo para añadir capsulas a la cafetera
+    /// Metodo para añadir capsulas a la cafetera. Se elimina el tipo double ya que no es necesario un return
     /// </summary>
     /// <param name="cantidadcapsulas"> variable de tipo double con la cantidad de capsulas a añadir</param>
     /// <returns>devuelve el total de capsulas tras añadir la cantidad introducida</returns>
-    public double ReponerCapsulas(double cantidadcapsulas)
+    public void ReponerCapsulas(double cantidadcapsulas)
     {
-        totaldecapsulas = totaldecapsulas + cantidadcapsulas;
-        return totaldecapsulas;
+        totaldecapsulas = totaldecapsulas + cantidadcapsulas; // añade la cantidad de capsulas a el total
     }
     /// <summary>
-    /// Metodo para añadir agua a la cafetera
+    /// Metodo para añadir agua a la cafetera.  Se elimina el tipo double ya que no es necesario un return
     /// </summary>
     /// <param name="litros"> variable de tipo double con la cantidad de agua a añadir</param>
     /// <returns>devuelve el total de litros de agua tras añadir la cantidad introducida</returns>
-    public double LlenarDeposito(double litros)
+    public void LlenarDeposito(double litros)
     {
-        agua = agua + litros;
-        return agua;
+        agua = agua + litros; // añade la cantidad de litros al agua total
     }
 
     /// <summary>
     /// Metodo para actualizar la marca y la referencia de la cafetera
     /// </summary>
-    /// <param name="r">variable de tipo string que indica que tipo de referencia de modelo es la cafetera</param>
-    /// <param name="m">variable de tipo string que indica que tipo de marca es la cafetera<</param>
-    public void VerEspecificacion(string r, string m)
+    /// <param name="refernciaIntroducida">variable de tipo string que indica que tipo de referencia de modelo es la cafetera</param>
+    /// <param name="marcaIntroducida">variable de tipo string que indica que tipo de marca es la cafetera<</param>
+    public void VerEspecificacion(string refernciaIntroducida, string marcaIntroducida)
     {
-        marca = m;
-        refModelo = r;
+        marca = marcaIntroducida; // actualiza la marca
+        refModelo = refernciaIntroducida; // actualiza la referencia del modelo
     }
 
 }
